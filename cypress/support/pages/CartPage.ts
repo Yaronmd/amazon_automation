@@ -1,13 +1,13 @@
 import { BasePage } from './BasePage';
 
 export class CartPage extends BasePage {
-  
+  private cardItems = '.sc-list-item'
   getCartItems() {
-    return cy.get('.sc-list-item');
+    return cy.get(this.cardItems);
   }
 
   verifyCartTitleMatchesSelectedProduct() {
-  this.getCartItems()
+    this.getCartItems()
     .should('be.visible')
     .invoke('text')
     .then((titleText) => {

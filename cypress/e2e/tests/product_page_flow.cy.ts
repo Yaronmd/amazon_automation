@@ -6,9 +6,8 @@ describe('Amazon Flow Without Login', () => {
   const homePage = new HomePage();
   const productPage = new ProductPage();
 
-
   it('should search for a product, navigate to its page, and verify product details', () => {
-    homePage.visit('https://www.amazon.com');
+  
     homePage.searchFor('laptop ship to Israel');
     homePage.verifyResultsContainAny(["laptop"])
     homePage.clickProductByIndex(1);

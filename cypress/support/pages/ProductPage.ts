@@ -4,13 +4,14 @@ import { BasePage } from './BasePage';
 export class ProductPage extends BasePage {
   private productTitle = '#productTitle';
   private productPrice = '.a-price'
+  private addToCartPath = '#add-to-cart-button'
   
   verifyAddtoCartVisable() {
-    cy.get('#add-to-cart-button').should('be.visible');
+    cy.get(this.addToCartPath).should('be.visible');
   }
 
   addToCart() {
-    cy.get('#add-to-cart-button').click();
+    cy.get(this.addToCartPath).click();
   }
 
   verifyTitleMatchesSelectedProduct() {

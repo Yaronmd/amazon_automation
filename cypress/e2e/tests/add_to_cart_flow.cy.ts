@@ -7,10 +7,10 @@ describe('Amazon Flow Without Login', () => {
   const productPage = new ProductPage();
   const cartPage = new CartPage();
 
+
   it('should search, select product, add to cart, and check cart', () => {
-    homePage.visit('https://www.amazon.com');
-    homePage.searchFor('headphone ship to Israel');
-    homePage.verifyResultsContainAny(["headphone"])
+    homePage.searchFor('Sony WH-1000XM4 ship to Israel');
+    homePage.verifyResultsContainAny(["Sony WH-1000XM4"])
     homePage.clickProductByIndex(1);
 
     productPage.verifyTitleMatchesSelectedProduct()

@@ -14,4 +14,8 @@ export class BasePage {
   goToCart() {
     cy.get('#nav-cart').click();
   }
+   scrollDownAndLoad() {
+    cy.scrollTo('bottom', { duration: 1500 });
+    cy.wait(1000);
+  }
 }
