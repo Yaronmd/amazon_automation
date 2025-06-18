@@ -1,7 +1,7 @@
 import { HomePage } from '../../support/pages/HomePage'
 import { TodayDealsPage } from '../../support/pages/TodaysDealsPage';
 
-describe('Amazon Flow Without Login', () => {
+describe('Amazon - Todays Deals Flow Without Login', () => {
   const homePage = new HomePage();
   const todayDealsPage = new  TodayDealsPage()
 

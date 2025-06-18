@@ -15,7 +15,7 @@ export class ProductPage extends BasePage {
   }
 
   verifyTitleMatchesSelectedProduct() {
-  cy.get(this.productTitle)
+  cy.get(this.productTitle, { timeout: 10000 })
     .should('be.visible')
     .invoke('text')
     .then((titleText) => {

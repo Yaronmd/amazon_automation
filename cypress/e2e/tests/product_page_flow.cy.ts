@@ -2,7 +2,7 @@ import { HomePage } from '../../support/pages/HomePage'
 import { ProductPage } from '../../support/pages/ProductPage';
 import { CartPage } from '../../support/pages/CartPage';
 
-describe('Amazon Flow Without Login', () => {
+describe('Amazon - Search and Product Details Without Login', () => {
   const homePage = new HomePage();
   const productPage = new ProductPage();
 
