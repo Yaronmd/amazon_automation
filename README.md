@@ -26,7 +26,6 @@ cd amazon_automation
 
 ### Running tests with Docker
 
-This project includes a Dockerfile based on `cypress/browsers:node16.16.0-chrome107-ff107`.  
 Tests run in **Electron** headless mode inside the Docker container.
 
 To build and run the tests:
