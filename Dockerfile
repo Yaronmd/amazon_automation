@@ -8,4 +8,4 @@ RUN npm install
 
 COPY . .
 
-CMD ["npx", "cypress", "run", "--browser", "chrome"]
+CMD ["npx", "cypress", "run"]
