@@ -19,7 +19,7 @@ export class CategoriesMenu extends BasePage {
    * @param subCategory - The sub-category name to select.
    */
   SelectSubCategory(subCategory: string) {
-    this.tryClickCategory(subCategory, 1, false); 
+    this.tryClickCategory(subCategory, 3, false); 
   }
   /**
    * Try to click a category, retry if needed, and check for sub-menu if expected.
@@ -32,11 +32,7 @@ export class CategoriesMenu extends BasePage {
     .find('li:has(a.hmenu-item)')
     .contains('a.hmenu-item', category, { matchCase: false })
     .wait(500) 
-    .scrollIntoView({ duration: 300 })
-    .should('be.visible')
-    .trigger('mouseover',{ force: true }) 
-    .wait(500) 
-    .click({ force: true })
+    .click()
     .wait(1000) 
     .then(() => {
       if (expectSubMenu) {
@@ -48,7 +44,7 @@ export class CategoriesMenu extends BasePage {
             cy.wait(500);
             this.tryClickCategory(category, attemptsLeft - 1, expectSubMenu);
           } else {
-            throw new Error(` Failed to open sub-menu for category: ${category}`);
+            throw new Error(`Failed to open sub-menu for category: ${category}`);
           }
         });
       } else {
