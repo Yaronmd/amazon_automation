@@ -16,12 +16,14 @@
 // Import commands.js using ES2015 syntax:
 import './commands'
 
+// Ignore specific known exceptions to prevent test failures.
 Cypress.on('uncaught:exception', (err) => {
   if (err.message.includes('cardModuleFactory')) {
     return false;
   }
 });
 
+// Overwrite the visit command to include a default User-Agent header.
 Cypress.Commands.overwrite('visit', (originalFn, url, options = {}) => {
   const defaultHeaders = {
     'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36'
@@ -34,6 +36,9 @@ Cypress.Commands.overwrite('visit', (originalFn, url, options = {}) => {
 
   return originalFn(url, options);
 });
+
+// Runs before each test to clear cookies, local storage,
+// and close any popups if they appear.
 beforeEach(() => {
   cy.visit('/');
   
