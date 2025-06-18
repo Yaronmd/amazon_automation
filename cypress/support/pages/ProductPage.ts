@@ -6,14 +6,23 @@ export class ProductPage extends BasePage {
   private productPrice = '.a-price'
   private addToCartPath = '#add-to-cart-button'
   
+  /**
+   * Checks that the Add to Cart button is visible.
+   */
   verifyAddtoCartVisable() {
     cy.get(this.addToCartPath).should('be.visible');
   }
 
+  /**
+   * Clicks the Add to Cart button.
+   */
   addToCart() {
     cy.get(this.addToCartPath).click();
   }
 
+  /**
+   * Verifies that the product title matches the name of the selected product.
+   */
   verifyTitleMatchesSelectedProduct() {
   cy.get(this.productTitle, { timeout: 10000 })
     .should('be.visible')
@@ -28,6 +37,10 @@ export class ProductPage extends BasePage {
       });
     });
 }
+
+/**
+   * Verifies that the product has a visible price.
+   */
 verifyProductHasPrice() {
   cy.get(this.productPrice).first()
     .should('be.visible')
