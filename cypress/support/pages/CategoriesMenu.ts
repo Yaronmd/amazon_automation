@@ -34,7 +34,7 @@ export class CategoriesMenu extends BasePage {
     .wait(500) 
     .scrollIntoView({ duration: 300 })
     .should('be.visible')
-    .trigger('mouseover') 
+    .trigger('mouseover',{ force: true }) 
     .wait(500) 
     .click({ force: true })
     .wait(1000) 
